@@ -28,17 +28,20 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(bottom: 32, top: 32),
                     child: Image(image: AssetImage('assets/images/logo.png'))),
                 Expanded(
-                  child: ListView(
-                    children: [
-                      TaskCardWidget(
-                          title: 'Get Started',
-                          discription:
-                              'Hello User Welcome to To Do List, this is a deffault track that you can edit or delete to start using the app.'),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                      TaskCardWidget(),
-                    ],
+                  child: ScrollConfiguration(
+                    behavior: NoGlowBehaviour(),
+                    child: ListView(
+                      children: [
+                        TaskCardWidget(
+                            title: 'Get Started',
+                            discription:
+                                'Hello User Welcome to To Do List, this is a deffault track that you can edit or delete to start using the app.'),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                        TaskCardWidget(),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -57,7 +60,10 @@ class _HomePageState extends State<HomePage> {
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
-                      color: Color(0xFF7349FE),
+                      gradient: LinearGradient(colors: [
+                        Color(0xFF7349FE),
+                        Color(0xFF643FDE),
+                      ], begin: Alignment(0, -1), end: Alignment(0, 1)),
                       borderRadius: BorderRadius.circular(20)),
                   child: Image(image: AssetImage('assets/images/add_icon.png')),
                 ),
